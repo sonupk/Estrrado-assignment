@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
         const student = await Student.findOne({ username, password });
 
         if (student) {
-            res.status(200).send('Login successful');
+            res.status(200).send('Student Login successful');
         } else {
             res.status(401).send('Invalid credentials');
         }
