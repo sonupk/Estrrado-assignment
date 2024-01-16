@@ -32,3 +32,4 @@ Start the server:npx nodemon src/index.js The server will run on http://localhos
 *Test the APIs using Postman tool=>
 API Endpoints POST/register: Register a new student data. 
 POST/login: Login with an existing student. 
+GET/registration-list: retrieve a student of list from database.

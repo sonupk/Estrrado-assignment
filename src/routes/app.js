@@ -43,15 +43,30 @@ router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // logic to validate login credentials
-        const student = await Student.findOne({ username, password });
-         if (student) {
-            res.status(200).send('Student Logged in successfully');
+        // Implement logic to validate login credentials
+        const student = await Student.findOne({ username });
+
+        if (student && student.password === password) {
+             // Redirect to the list route
+            res.redirect('/registration-list');
         } else {
+            // Invalid credentials
             res.status(401).send('Invalid credentials');
         }
     } catch (error) {
         res.status(400).send(error);
+    }
+});
+
+router.get('/registration-list', async (req, res) => {
+    try {
+        // logic to retrieve and display the list of registration forms
+        const registrationList = await Student.find({}, 'firstName lastName');
+
+        // send JSON response with the registration list
+        res.json(registrationList);
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
     }
 });
 
