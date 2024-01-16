@@ -1,0 +1,19 @@
+{
+  "name": "estrrado-assignment",
+  "version": "1.0.0",
+  "description": "Estrrado assignment using MVC structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonupk/Estrrado-assignment.git"
+  },
+  "author": "Sonu Kamble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonupk/Estrrado-assignment/issues"
+  },
+  "homepage": "https://github.com/sonupk/Estrrado-assignment#readme"
+}
