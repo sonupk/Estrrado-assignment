@@ -1,5 +1,5 @@
 const express = require('express');
-//const route = require('./routes/auth.js');
+const route = require('./routes/app.js');
 const bodyParser = require('body-parser');
 const { default: mongoose } = require('mongoose');
 
@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 
+
+app.use('/',route)
 
 
 mongoose.connect("mongodb+srv://sonuk:kamble123@cluster0.vfrmzq9.mongodb.net/estrrado-DB" )
