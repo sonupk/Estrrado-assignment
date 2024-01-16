@@ -3,13 +3,12 @@ const router = express.Router();
 const Student = require('../model/studentModel');
 const { v4: uuidv4 } = require('uuid');
 
-// Registration route
+// Student Registration route
 router.post('/register', async (req, res) => {
     try {
         // Generate a unique student ID using uuid
         const studentId = uuidv4();
-
-        // Handle multiple qualifications
+// Handle multiple qualifications
         const qualifications = req.body.qualifications.map(q => ({
             courseName: q.courseName,
             university: q.university,
@@ -32,24 +31,22 @@ router.post('/register', async (req, res) => {
         };
 
         const student = new Student(studentData);
-
-        await student.save();
+             await student.save();
         res.status(201).send(student);
     } catch (error) {
         res.status(400).send(error);
     }
 });
 
-// Login route
+// Student Login route
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Implement logic to validate login credentials
+        // logic to validate login credentials
         const student = await Student.findOne({ username, password });
-
-        if (student) {
-            res.status(200).send('Student Login successful');
+         if (student) {
+            res.status(200).send('Student Logged in successfully');
         } else {
             res.status(401).send('Invalid credentials');
         }
